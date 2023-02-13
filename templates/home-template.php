@@ -7,7 +7,9 @@
 ?>
 
 <div class="home-container">
+
     <div class="main-margin inner-container">
+
         <div class="movie-list-container">
 
             <h2>Upcoming Movies</h2>
@@ -16,6 +18,8 @@
 
                 $today = strtotime(date('Y-m-d'));
                 $current_month = '';
+
+
                 $args = array(
                     'post_type' => 'movies',
                     'meta_key' => 'release_date',
@@ -29,24 +33,31 @@
                             'compare' => '>'
                         )
                     )
+
+
                 );
 
+
+
+
                 $movies = new WP_Query( $args );
+
+
                 echo '<ul class="movie-list home">';
                 while ( $movies->have_posts() ) {
                     $movies->the_post();
                     $poster = 'https://image.tmdb.org/t/p/w500' . get_post_meta(get_the_ID(), 'poster', true);
-                    $release_date = date("F d, Y", get_post_meta(get_the_ID(), 'release_date', true));
-                    $month = date("F", get_post_meta(get_the_ID(), 'release_date', true));
-                    $year = date("Y", get_post_meta(get_the_ID(), 'release_date', true));
+                    $release_date = get_post_meta(get_the_ID(), 'release_date', true);
+                    $current_year = date("Y", $release_date);
+                    $month = date("F", $release_date);
                     $movie_genres = get_the_terms( get_the_ID(), 'movie_genre' );   
-                    
-                    if ($current_month !== $month && $year == date("Y")) {
-                        $current_month = $month;
-                        echo '<h3 class="month">' . $current_month . '</h3>';
-                    }
-                    
-                    if ($year == date("Y")) {
+                
+                    if ($current_year === date("Y")) {
+                        if ($current_month !== $month) {
+                            $current_month = $month;
+                            echo '<h3 class="month">' . $current_month . '</h3>';
+                        }
+                
                         echo '<li>';
                         echo '<a href="' . esc_url( get_permalink() ) . '">';
                         echo '<img src="'.$poster.'" />';
@@ -61,15 +72,16 @@
                             echo implode(', ', $genre_list);
                             echo '</p>';
                         }
-                        echo '<p>Release Date: ' . $release_date .'</p>';
+                        echo '<p>Release Date: ' . date("F d, Y", $release_date) .'</p>';
                         echo '</div>';
                         echo '</a>';
-                        echo '</li>';   
-                    }         
+                        echo '</li>';  
+                    }          
                 }
-
                 echo '</ul>';
                 wp_reset_postdata();
+
+
             ?>
 
         </div>
@@ -107,6 +119,7 @@
                 }
 
                 echo '</ul>';
+
 
                 ?>
 
@@ -157,14 +170,16 @@
                     echo '</a>';    
                     echo '</li>';     
                 }
-
                 echo '</ul>';
                 wp_reset_postdata();
+
+
 
             ?>
 
         </div>
     </div>
+
 </div>
 
 
