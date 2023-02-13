@@ -1,0 +1,503 @@
+$gray: #f6f6f6;
+$black: #070606;
+$white: #fff;
+$green: #1b991f;
+$box-shadow: 0 2px 2px rgb(45 32 31 / 15%), 0 5px 10px rgb(149 145 142 / 10%);
+$main-font: "Inter", sans-serif;
+
+body * {
+  font-family: $main-font;
+}
+
+div#header,
+hr {
+  display: none;
+}
+
+#import-result {
+  margin-top: 15px;
+}
+
+#secondary-header {
+  background: $white;
+  margin-bottom: 50px;
+
+  .inner-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 34px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Regular.woff2") format("woff2"),
+    url("/assets/fonts/Inter-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Bold.woff2") format("woff2"),
+    url("/assets/fonts/Inter-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Black.woff2") format("woff2"),
+    url("/assets/fonts/Inter-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background: $gray;
+}
+
+footer {
+  background: $white;
+  padding: 20px 0;
+  margin: 50px 0 0 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+ul.actor-list {
+  list-style: none;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  row-gap: 30px;
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100%;
+    }
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+}
+
+ul.actors-archive-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2em;
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  text-align: center;
+
+  li {
+    background: $white;
+    box-shadow: $box-shadow;
+    position: relative;
+    border-radius: 5px;
+    padding: 20px;
+
+    a {
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 100%;
+      }
+    }
+
+    &:hover {
+      box-shadow: $box-shadow;
+
+      a {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.movie-list-container {
+  margin-bottom: 60px;
+}
+
+ul.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  max-width: 100%;
+  gap: 2em;
+  list-style: none;
+
+  li:not(.month-header) {
+    background: $white;
+    box-shadow: $box-shadow;
+    position: relative;
+    border-radius: 5px;
+    &:hover {
+      box-shadow: 0 2px 2px rgb(45 32 31 / 15%),
+        0 5px 10px rgb(149 145 142 / 30%);
+    }
+  }
+
+  li.month-header {
+    grid-column: 1/-1;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .image-container {
+    height: 500px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
+    img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+  }
+
+  .text-container {
+    padding: 20px;
+
+    h3 {
+      margin: 0;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    p.genres {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    p.release-date {
+      position: absolute;
+      top: 0;
+      background: white;
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+.single-movie-container {
+  h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+  }
+
+  .cast-container {
+    h2 {
+      margin: 0 0 15px 0;
+    }
+  }
+
+  .stat {
+    span {
+      font-weight: bold;
+    }
+
+    &.og {
+      span {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .popularity {
+    color: $green;
+    padding: 10px 20px;
+    border: 1px solid $green;
+    border-radius: 5px;
+    width: fit-content;
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .post-genres {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+
+    li {
+      padding: 10px 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+  }
+
+  .inner-columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    position: relative;
+
+    .image-container {
+      img {
+        position: sticky;
+        top: 15px;
+        max-height: 700px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .reviews-container {
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        li {
+          text-align: center;
+          .review-header {
+            img {
+              width: 150px;
+              height: 150px;
+              object-fit: cover;
+              border-radius: 100%;
+            }
+
+            .review-rating {
+              display: block;
+              margin-bottom: 15px;
+            }
+          }
+
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+
+      h3 {
+        margin: 15px 0;
+      }
+    }
+  }
+}
+
+.main-margin {
+  max-width: 1300px;
+  padding: 0 100px;
+  margin: 0 auto;
+}
+
+.actor-container {
+  .inner-columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    position: relative;
+
+    .actor-photo img {
+      position: sticky;
+      top: 15px;
+    }
+
+    .actor-images-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 15px;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    h1 {
+      font-weight: bold;
+      margin: 0 0 15px 0;
+    }
+  }
+
+  .actor-movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+
+    .actor-movie-item {
+      box-shadow: $box-shadow;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 2px 2px rgb(45 32 31 / 15%),
+          0 5px 10px rgb(149 145 142 / 30%);
+      }
+
+      .text-container {
+        padding: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      h3,
+      p {
+        margin: 0;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+
+  .month {
+    grid-column: 1/-1;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .text-container {
+    padding: 20px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+form.filters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  .filter-container {
+    display: flex;
+  }
+
+  input,
+  select {
+    min-height: 45px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 1px solid $black;
+  }
+
+  input[type="submit"] {
+    padding: 10px 50px;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid $black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-margin {
+    padding: 0 40px;
+  }
+
+  .single-movie-container .inner-columns,
+  .actor-container .inner-columns {
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    .image-container img {
+      max-height: unset;
+      width: 100%;
+    }
+  }
+
+  .actor-container .inner-columns {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    .actor-photo img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

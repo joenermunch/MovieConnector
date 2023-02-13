@@ -1,0 +1,419 @@
+body * {
+  font-family: "Inter", sans-serif;
+}
+
+div#header,
+hr {
+  display: none;
+}
+
+#import-result {
+  margin-top: 15px;
+}
+
+#secondary-header {
+  background: #fff;
+  margin-bottom: 50px;
+}
+#secondary-header .inner-container {
+  display: flex;
+  justify-content: space-between;
+}
+#secondary-header a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+#secondary-header a:hover {
+  font-weight: bold;
+}
+#secondary-header ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 34px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Regular.woff2") format("woff2"), url("/assets/fonts/Inter-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Bold.woff2") format("woff2"), url("/assets/fonts/Inter-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Black.woff2") format("woff2"), url("/assets/fonts/Inter-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  background: #f6f6f6;
+}
+
+footer {
+  background: #fff;
+  padding: 20px 0;
+  margin: 50px 0 0 0;
+}
+footer p {
+  margin: 0;
+}
+
+ul.actor-list {
+  list-style: none;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  row-gap: 30px;
+}
+ul.actor-list .image-container {
+  display: flex;
+  justify-content: center;
+}
+ul.actor-list .image-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+ul.actor-list h3 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+ul.actors-archive-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2em;
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  text-align: center;
+}
+ul.actors-archive-list li {
+  background: #fff;
+  box-shadow: 0 2px 2px rgba(45, 32, 31, 0.15), 0 5px 10px rgba(149, 145, 142, 0.1);
+  position: relative;
+  border-radius: 5px;
+  padding: 20px;
+}
+ul.actors-archive-list li a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+ul.actors-archive-list li a img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+ul.actors-archive-list li:hover {
+  box-shadow: 0 2px 2px rgba(45, 32, 31, 0.15), 0 5px 10px rgba(149, 145, 142, 0.1);
+}
+ul.actors-archive-list li:hover a {
+  font-weight: bold;
+}
+
+.movie-list-container {
+  margin-bottom: 60px;
+}
+
+ul.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  max-width: 100%;
+  gap: 2em;
+  list-style: none;
+}
+ul.movie-list li:not(.month-header) {
+  background: #fff;
+  box-shadow: 0 2px 2px rgba(45, 32, 31, 0.15), 0 5px 10px rgba(149, 145, 142, 0.1);
+  position: relative;
+  border-radius: 5px;
+}
+ul.movie-list li:not(.month-header):hover {
+  box-shadow: 0 2px 2px rgba(45, 32, 31, 0.15), 0 5px 10px rgba(149, 145, 142, 0.3);
+}
+ul.movie-list li.month-header {
+  grid-column: 1/-1;
+}
+ul.movie-list li.month-header h2 {
+  margin: 0;
+}
+ul.movie-list .image-container {
+  height: 500px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+ul.movie-list .image-container img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+ul.movie-list .text-container {
+  padding: 20px;
+}
+ul.movie-list .text-container h3 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: bold;
+}
+ul.movie-list .text-container p.genres {
+  margin: 0;
+  font-size: 14px;
+}
+ul.movie-list .text-container p.release-date {
+  position: absolute;
+  top: 0;
+  background: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 2px rgba(45, 32, 31, 0.15), 0 5px 10px rgba(149, 145, 142, 0.1);
+}
+
+.single-movie-container h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+}
+.single-movie-container .cast-container h2 {
+  margin: 0 0 15px 0;
+}
+.single-movie-container .stat span {
+  font-weight: bold;
+}
+.single-movie-container .stat.og span {
+  text-transform: uppercase;
+}
+.single-movie-container .popularity {
+  color: #1b991f;
+  padding: 10px 20px;
+  border: 1px solid #1b991f;
+  border-radius: 5px;
+  width: fit-content;
+}
+.single-movie-container .popularity span {
+  font-weight: bold;
+}
+.single-movie-container .post-genres {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.single-movie-container .post-genres li {
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.single-movie-container .inner-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  position: relative;
+}
+.single-movie-container .inner-columns .image-container img {
+  position: sticky;
+  top: 15px;
+  max-height: 700px;
+  width: 100%;
+  object-fit: cover;
+}
+.single-movie-container .inner-columns .reviews-container ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.single-movie-container .inner-columns .reviews-container ul li {
+  text-align: center;
+}
+.single-movie-container .inner-columns .reviews-container ul li .review-header img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.single-movie-container .inner-columns .reviews-container ul li .review-header .review-rating {
+  display: block;
+  margin-bottom: 15px;
+}
+.single-movie-container .inner-columns .reviews-container ul li p {
+  font-size: 14px;
+}
+.single-movie-container .inner-columns .reviews-container h3 {
+  margin: 15px 0;
+}
+
+.main-margin {
+  max-width: 1300px;
+  padding: 0 100px;
+  margin: 0 auto;
+}
+
+.actor-container .inner-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  position: relative;
+}
+.actor-container .inner-columns .actor-photo img {
+  position: sticky;
+  top: 15px;
+}
+.actor-container .inner-columns .actor-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+}
+.actor-container .inner-columns .actor-images-grid img {
+  width: 100%;
+  object-fit: cover;
+}
+.actor-container .inner-columns h1 {
+  font-weight: bold;
+  margin: 0 0 15px 0;
+}
+.actor-container .actor-movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+.actor-container .actor-movies-grid .actor-movie-item {
+  box-shadow: 0 2px 2px rgba(45, 32, 31, 0.15), 0 5px 10px rgba(149, 145, 142, 0.1);
+  cursor: pointer;
+}
+.actor-container .actor-movies-grid .actor-movie-item:hover {
+  box-shadow: 0 2px 2px rgba(45, 32, 31, 0.15), 0 5px 10px rgba(149, 145, 142, 0.3);
+}
+.actor-container .actor-movies-grid .actor-movie-item .text-container {
+  padding: 20px;
+}
+.actor-container .actor-movies-grid .actor-movie-item a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.actor-container .actor-movies-grid .actor-movie-item img {
+  width: 100%;
+  object-fit: cover;
+}
+.actor-container .actor-movies-grid .actor-movie-item h3,
+.actor-container .actor-movies-grid .actor-movie-item p {
+  margin: 0;
+}
+.actor-container .actor-movies-grid .actor-movie-item p {
+  font-size: 14px;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+}
+.movie-list .month {
+  grid-column: 1/-1;
+  margin: 0;
+}
+.movie-list a {
+  text-decoration: none;
+}
+.movie-list .text-container {
+  padding: 20px;
+}
+.movie-list .text-container h2 {
+  margin: 0;
+}
+.movie-list img {
+  width: 100%;
+  object-fit: cover;
+}
+
+form.filters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+form.filters .filter-container {
+  display: flex;
+}
+form.filters input,
+form.filters select {
+  min-height: 45px;
+  padding: 0 15px;
+  border-radius: 5px;
+  border: 1px solid #070606;
+}
+form.filters input[type=submit] {
+  padding: 10px 50px;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid #070606;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .main-margin {
+    padding: 0 40px;
+  }
+  .single-movie-container .inner-columns,
+.actor-container .inner-columns {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .single-movie-container .inner-columns .image-container img,
+.actor-container .inner-columns .image-container img {
+    max-height: unset;
+    width: 100%;
+  }
+  .actor-container .inner-columns {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .actor-container .inner-columns .actor-photo img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
